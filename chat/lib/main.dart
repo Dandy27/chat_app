@@ -4,7 +4,12 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 void main() async {
   runApp(MyApp());
 
-  Firestore.instance.collection('col').document('doc').setData({'texto': 'daniel'});
+  Firestore.instance
+      .collection('mensagens')
+      .document("NVUiZsoM96BjjZEUX4hA")
+      .collection('arquivos')
+      .document()
+      .setData({'read ': false});
 }
 
 class MyApp extends StatelessWidget {
