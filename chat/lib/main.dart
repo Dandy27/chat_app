@@ -1,14 +1,12 @@
+import 'package:chat/chatscreen.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 
 void main() async {
   runApp(MyApp());
 
- Firestore.instance.collection('mensagens').snapshots().listen((dado) {
-   dado.documents.forEach((d) {
-     print(d.data);
-   });
- });
+
 }
 
 class MyApp extends StatelessWidget {
@@ -19,8 +17,11 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
         primarySwatch: Colors.blue,
+        iconTheme: IconThemeData(
+          color: Colors.blue
+        )
       ),
-      home: Container(),
+      home: ChatScreen(),
     );
   }
 }
