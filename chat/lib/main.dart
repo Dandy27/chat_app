@@ -4,12 +4,11 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 void main() async {
   runApp(MyApp());
 
-  Firestore.instance
-      .collection('mensagens')
-      .document("NVUiZsoM96BjjZEUX4hA")
-      .collection('arquivos')
-      .document()
-      .setData({'read ': false});
+ Firestore.instance.collection('mensagens').snapshots().listen((dado) {
+   dado.documents.forEach((d) {
+     print(d.data);
+   });
+ });
 }
 
 class MyApp extends StatelessWidget {
